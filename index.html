@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Змейка Скидок - Играй и Экономь!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-bolt"></i>
+                <span>DiscountSnake</span>
+            </div>
+            <div class="score-display">
+                <div class="discount-badge">
+                    <span class="discount-percent">0%</span>
+                    <span class="discount-label">СКИДКА</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Game Area -->
+        <div class="game-container">
+            <div class="game-info">
+                <div class="stat-item">
+                    <i class="fas fa-trophy"></i>
+                    <span>Очки: <span id="score">0</span></span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-apple-alt"></i>
+                    <span>Съедено: <span id="eaten">0</span></span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Уровень: <span id="level">1</span></span>
+                </div>
+            </div>
+
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+            <!-- Mobile Controls -->
+            <div class="mobile-controls">
+                <div class="control-row">
+                    <button class="control-btn" data-direction="up">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                </div>
+                <div class="control-row">
+                    <button class="control-btn" data-direction="left">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="control-btn pause-btn" id="pauseBtn">
+                        <i class="fas fa-pause"></i>
+                    </button>
+                    <button class="control-btn" data-direction="right">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="control-row">
+                    <button class="control-btn" data-direction="down">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Game Status -->
+            <div class="game-status" id="gameStatus">
+                <div class="status-content">
+                    <h2>Готовы начать?</h2>
+                    <p>Управляйте змейкой и собирайте еду, чтобы увеличить скидку!</p>
+                    <button class="start-btn" id="startBtn">
+                        <i class="fas fa-play"></i>
+                        Начать игру
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Discount Progress -->
+        <div class="discount-progress">
+            <h3>Прогресс скидки</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+                <div class="progress-text">
+                    <span>Следующий уровень: </span>
+                    <span id="nextDiscount">5%</span>
+                </div>
+            </div>
+            <div class="discount-milestones">
+                <div class="milestone" data-discount="5">5%</div>
+                <div class="milestone" data-discount="10">10%</div>
+                <div class="milestone" data-discount="15">15%</div>
+                <div class="milestone" data-discount="20">20%</div>
+                <div class="milestone" data-discount="25">25%</div>
+                <div class="milestone" data-discount="30">30%</div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section" id="ctaSection">
+            <div class="cta-content">
+                <h2>Поздравляем! Ваша скидка готова!</h2>
+                <div class="final-discount">
+                    <span id="finalDiscount">0%</span>
+                    <small>скидка на все товары</small>
+                </div>
+                <button class="cta-btn" id="claimBtn">
+                    <i class="fas fa-gift"></i>
+                    Получить скидку
+                </button>
+                <button class="restart-btn" id="restartBtn">
+                    <i class="fas fa-redo"></i>
+                    Играть еще
+                </button>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <h3>Как играть:</h3>
+            <div class="instruction-grid">
+                <div class="instruction-item">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Используйте стрелки или тач-контролы</span>
+                </div>
+                <div class="instruction-item">
+                    <i class="fas fa-apple-alt"></i>
+                    <span>Собирайте еду, чтобы расти</span>
+                </div>
+                <div class="instruction-item">
+                    <i class="fas fa-percentage"></i>
+                    <span>Каждый блок = больше скидка</span>
+                </div>
+                <div class="instruction-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Работает на всех устройствах</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
